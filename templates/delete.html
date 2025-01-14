@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href = "{{ url_for('index') }}">Home</a></li>
+        <li><a href = "{{ url_for('add') }}">Add new blog</a></li>
+    </ul>
+</nav>
+    <h1>Lets delete a blog post</h1>
+    {% if posts %}
+        {% for post in posts if post['id' == post_id %}
+        <div class="post">
+            <h2> {{post['id'] }}</h2>
+            <h2> {{ post['title'] }}</h2>
+            <p><em>Written by ...{{ post['author'] }}</em></p>
+            <p>{{ post['content'] }}</p>
+
+            <form id = "delete_post" name ="delete_post" action="/delete/{{ post_id }}" method = "DELETE" >
+                <label for ="submit">Submit</label>
+                <input type = "submit" id = "submit" name = "submit">
+            </form>
+
+        </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

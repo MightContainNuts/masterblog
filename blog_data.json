@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "author": "Betty",
+        "title": "new title",
+        "content": "yes!!",
+        "likes": 4
+    },
+    {
+        "id": 3,
+        "author": "qwedf",
+        "title": "q",
+        "content": "qrfqwf",
+        "likes": 0
+    },
+    {
+        "id": 4,
+        "author": "dean",
+        "title": "the fourth post",
+        "content": "this is the fourth post",
+        "likes": 0
+    },
+    {
+        "id": 5,
+        "author": "Dean",
+        "title": "tis is exciting",
+        "content": "amazing stuff",
+        "likes": 0
+    }
+]

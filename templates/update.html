@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href = "{{ url_for('index') }}">Home</a></li>
+        <li><a href = "{{ url_for('add') }}">Add new blog</a></li>
+    </ul>
+</nav>
+    <h1>Updating blog {{ post_to_update['id'] }}</h1>
+    {% if post_to_update %}
+        <div class="post">
+            <h2> {{post_to_update['id'] }}</h2>
+            <h2> {{ post_to_update['title'] }}</h2>
+            <p><em>Written by ...{{ post_to_update['author'] }}</em></p>
+            <p>{{ post_to_update['content'] }}</p>
+        </div>
+        <div>
+            <form id = "update_post" name = "update_post"
+          action="/update/{{ post_to_update['id'] }}" method = "POST" >
+        <label for="author"> Author:</label>
+        <input type="text" id="author" name="author" value = {{ post_to_update.author }}><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content"><br>
+        <label for ="submit">Submit</label>
+        <input type = "submit" id = "submit" name = "submit">
+        </form>
+
+        </div>
+    {% endif %}
+</body>
+</html>
